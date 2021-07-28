@@ -1,0 +1,9 @@
+imutils
+numpy
+scipy
+Pillow
+pdfrw
+PyPDF2
+pdf2image
+img2pdf
+opencv-python
