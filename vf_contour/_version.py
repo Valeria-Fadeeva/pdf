@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Описание названия, версии, копирайтов"""
 
-__version__ = '0.2.2'
+__version__ = '0.2.5'
 __appname__ = 'Get pages from scaned book'
 __author__ = 'Valeria Fadeeva'
 __copyright__ = 'Copyright (C) 2021 Valeria Fadeeva'

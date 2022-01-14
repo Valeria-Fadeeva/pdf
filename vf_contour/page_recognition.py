@@ -227,6 +227,40 @@ def page_recognition(subproject, config, filepath=False):
 
             i += 1
         else:
+            if len(img_list) == 2:
+                h1, w1 = img_list[0].shape[:2]
+                h2, w2 = img_list[1].shape[:2]
+
+                s1 = h1 * w1 / 1000
+                s2 = h2 * w2 / 1000
+
+                if s1 > s2:
+                    diff_perc = 100 - (s2 * 100 / s1)
+                    if diff_perc > 15:
+                        img1 = img_list[0][0:h1, 0:floor(w1/2)]
+                        img2 = img_list[0][0:h1, floor(w1/2):w1]
+                        img_list[0] = img1
+                        img_list[1] = img2
+                elif s1 < s2:
+                    diff_perc = 100 - (s1 * 100 / s2)
+                    if diff_perc > 15:
+                        img1 = img_list[1][0:h2, 0:floor(w2/2)]
+                        img2 = img_list[1][0:h2, floor(w2/2):w2]
+                        img_list[0] = img1
+                        img_list[1] = img2
+
+                h1, w1 = img_list[0].shape[:2]
+                h2, w2 = img_list[1].shape[:2]
+
+                margin1 = floor(w1 * 0.1)
+                margin2 = floor(w2 * 0.1)
+
+                img1 = img_list[0][0:h1, margin1:w1]
+                img2 = img_list[1][0:h2, 0:w2-margin2]
+
+                img_list[0] = img1
+                img_list[1] = img2
+
             for img in img_list:
                 result_name = get_result_name(subproject_result_main_format_path, dig)
                 result_filename = f'{result_name}{ext}'
