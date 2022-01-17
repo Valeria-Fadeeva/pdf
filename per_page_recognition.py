@@ -6,11 +6,12 @@ import os
 import sys
 import ast
 import subprocess
+from pynput import keyboard
 from vf_base.config import Config
 from vf_base.check_file import check_file
 from vf_contour.per_page_recognition_help import per_page_recognition_help
 from vf_contour.page_recognition import page_recognition
-
+from vf_base.scan_dir_os import scan_files_os
 
 with open('config.cfg', 'r', encoding='utf-8') as file:
     s = file.read().replace('\r\n', '')
@@ -82,12 +83,36 @@ def main():
                     filepath = temp_filepath
 
     if check_file_var is True:
-        subproject = os.path.dirname(filepath)
-        subproject = os.path.dirname(subproject)
-        subproject = os.path.basename(subproject)
+        print(filepath)
+        subproject_path_pdf = os.path.dirname(filepath)
+        subproject_path = os.path.dirname(subproject_path_pdf)
+        subproject = os.path.basename(subproject_path)
+
         ret_values = page_recognition(subproject, config, filepath)
         ret_values.insert(0, 'viewer')
         subprocess.run(ret_values, shell=True, check=True)
+
+        arr_files = scan_files_os(subproject_path_pdf)
+
+        index = arr_files.index(filepath)
+
+        while 1:
+            print('Для продолжения нажмите Enter или пробел')
+            print('Для выхода нажмите ESC')
+            with keyboard.Events() as events:
+                # Block for as much as possible
+                event = events.get(1e6)
+
+                if event.key == keyboard.Key.space or event.key == keyboard.Key.enter:
+                    filepath = arr_files[index+1]
+                    print(filepath)
+                    ret_values = page_recognition(subproject, config, filepath)
+                    ret_values.insert(0, 'viewer')
+                    subprocess.run(ret_values, shell=True, check=True)
+
+                if event.key == keyboard.Key.esc:
+                    print("ESC")
+                    break
     else:
         exit()
 
