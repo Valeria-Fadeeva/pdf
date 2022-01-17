@@ -94,8 +94,6 @@ def main():
 
         arr_files = scan_files_os(subproject_path_pdf)
 
-        index = arr_files.index(filepath)
-
         while 1:
             print('Для продолжения нажмите Enter или пробел')
             print('Для выхода нажмите ESC')
@@ -104,6 +102,7 @@ def main():
                 event = events.get(1e6)
 
                 if event.key == keyboard.Key.space or event.key == keyboard.Key.enter:
+                    index = arr_files.index(filepath)
                     filepath = arr_files[index+1]
                     print(filepath)
                     ret_values = page_recognition(subproject, config, filepath)
