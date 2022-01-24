@@ -97,16 +97,10 @@ def main():
             writer.addpages(pages)
             writer.write()
             print(outfn)
-
-
     else:
-        if args_len == 2:
-            if sys.argv[1] == '-l':
-                pass
-            else:
-                print('Файл не существует')
-                print('Уходим')
-                exit()
+        if 'temp_filepath' in locals():
+            print(f'Не найден {temp_filepath}')
+        exit()
 
 if __name__ == '__main__':
     main()

@@ -113,6 +113,8 @@ def main():
                     print("ESC")
                     break
     else:
+        if 'temp_filepath' in locals():
+            print(f'Не найден {temp_filepath}')
         exit()
 
 

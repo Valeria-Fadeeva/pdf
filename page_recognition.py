@@ -85,6 +85,8 @@ def main():
         subproject = os.path.basename(filepath)
         page_recognition(subproject, config)
     else:
+        if 'temp_filepath' in locals():
+            print(f'Не найден {temp_filepath}')
         exit()
 
 if __name__ == '__main__':

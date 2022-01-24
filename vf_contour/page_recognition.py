@@ -252,11 +252,13 @@ def page_recognition(subproject, config, filepath=False):
                 h1, w1 = img_list[0].shape[:2]
                 h2, w2 = img_list[1].shape[:2]
 
-                margin1 = floor(w1 * 0.1)
-                margin2 = floor(w2 * 0.1 / 2)
+                margin1_left = floor(w1 * 0.1 * 1.2)
+                margin1_right = floor(0.0)
+                margin2_left = floor(w2 * 0.1 / 2)
+                margin2_right = floor(w2 * 0.1 / 2)
 
-                img1 = img_list[0][0:h1, margin1:w1]
-                img2 = img_list[1][0:h2, 0+margin2:w2-margin2]
+                img1 = img_list[0][0:h1, margin1_left:w1-margin1_right]
+                img2 = img_list[1][0:h2, margin2_left:w2-margin2_right]
 
                 img_list[0] = img1
                 img_list[1] = img2
