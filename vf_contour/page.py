@@ -24,7 +24,7 @@ def page_process(image, contours, debug=False):
 
         # если объект занимает больше 30% от ширины и высоты изображения
         if w >= (image_w * 0.3) and h >= (image_h * 0.1):
-            print('APPROX', len(approx))
+            #print('APPROX', len(approx))
 
             font = cv.FONT_HERSHEY_SIMPLEX
 
@@ -33,8 +33,8 @@ def page_process(image, contours, debug=False):
                 for g in approx:
                     lp_ = g.tolist()[0]
                     s_ = 'len {} {}'.format(len(approx), lp_)
-                    ps_ = '{}'.format(lp_)
-                    print(ps_, end=' ')
+                    #ps_ = '{}'.format(lp_)
+                    #print(ps_, end=' ')
                     if debug is True:
                         #                        b, g, r
                         cv.circle(image, lp_, 10, (0, 0, 255), -1)

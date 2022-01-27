@@ -252,7 +252,8 @@ def page_recognition(subproject, config, filepath=False):
                 h1, w1 = img_list[0].shape[:2]
                 h2, w2 = img_list[1].shape[:2]
 
-                margin1_left = floor(w1 * 0.1 * 1.2)
+                #margin1_left = floor(w1 * 0.1 * 1.2)
+                margin1_left = floor(0.0)
                 margin1_right = floor(0.0)
                 margin2_left = floor(w2 * 0.1 / 2)
                 margin2_right = floor(w2 * 0.1 / 2)
