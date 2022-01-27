@@ -70,7 +70,7 @@ def page_process(image, contours, debug=False):
                     crop_img = image[y:y+h, x:x+w]
 
                 image_dict[x] = crop_img
-                print('[y:y+h, x:x+w]:', y, y+h, x, x+w, '\n\n')
+                #print('[y:y+h, x:x+w]:', y, y+h, x, x+w, '\n\n')
 
     if debug is True:
         cv.imwrite('lap/result.png', image)
