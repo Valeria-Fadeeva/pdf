@@ -29,6 +29,7 @@ def main():
     args_len = len(sys.argv)
     check_file_var = False
     filepath = False
+    scan = False
 
     project = os.path.abspath(
         os.path.join(
@@ -64,12 +65,18 @@ def main():
                         filepath = temp_filepath
 
     if args_len > 2:
-        print('Соединяем части параметров в одну строку')
         filepath = ' '.join(sys.argv)
-        filepath = filepath.replace(sys.argv[0], '', 1)
-        filepath = filepath.strip()
+        if sys.argv[1] == '-s':
+            scan = True
+            filepath = filepath.replace(sys.argv[0], '', 1)
+            filepath = filepath.replace(sys.argv[1], '', 1)
+        else:
+            filepath = filepath.replace(sys.argv[0], '', 1)
+            filepath = filepath.strip()
+
         print(filepath)
         print('Производим поиски')
+
         if filepath is not False:
             temp_filepath = os.path.abspath(filepath)
             check_file_var = check_file(temp_filepath)
@@ -83,6 +90,7 @@ def main():
                     filepath = temp_filepath
 
     if check_file_var is True:
+        print('Работаем')
         print(filepath)
         subproject_path_pdf = os.path.dirname(filepath)
         subproject_path = os.path.dirname(subproject_path_pdf)
@@ -94,7 +102,7 @@ def main():
 
         arr_files = scan_files_os(subproject_path_pdf)
 
-        while 1:
+        while scan is False:
             print('Для продолжения нажмите Enter или пробел')
             print('Для выхода нажмите ESC')
             with keyboard.Events() as events:

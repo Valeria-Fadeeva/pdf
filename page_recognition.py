@@ -63,7 +63,6 @@ def main():
                         filepath = temp_filepath
 
     if args_len > 2:
-        print('Соединяем части параметров в одну строку')
         filepath = ' '.join(sys.argv)
         filepath = filepath.replace(sys.argv[0], '', 1)
         filepath = filepath.strip()
@@ -82,6 +81,7 @@ def main():
                     filepath = temp_filepath
 
     if check_file_var is True:
+        print('Работаем')
         subproject = os.path.basename(filepath)
         page_recognition(subproject, config)
     else:
