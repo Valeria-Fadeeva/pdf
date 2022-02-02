@@ -72,11 +72,10 @@ def main():
             filepath = filepath.replace(sys.argv[1], '', 1)
         else:
             filepath = filepath.replace(sys.argv[0], '', 1)
-            filepath = filepath.strip()
 
-        print(filepath)
-        print('Производим поиски')
+        filepath = filepath.strip()
 
+        print(f'Производим поиски {filepath}')
         if filepath is not False:
             temp_filepath = os.path.abspath(filepath)
             check_file_var = check_file(temp_filepath)
