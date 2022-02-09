@@ -75,6 +75,32 @@ def get_result_name(result_path, dig):
 def get_result_images(image, debug=False):
     img_list = False
 
+    """
+    Если страницы выцвели от солнца (пожелтели), то
+    70 - очень светло, буквы становятся тонкими
+    80 - буквы толще
+    90 - буквы еще толще, чуть больше грязи
+    110 - грязно
+    127 - грязно, что даже жутко
+
+    Следовательно, если возникли проблемы
+    с распознаванием нужно начинать с 70 и подниматься
+    """
+
+    """
+    start = 70
+    while not img_list and start > 0 and start <= 250:
+        img_list = _main(image, start=start, debug=debug)
+        if not img_list:
+            start += 10
+
+    start = 70
+    while not img_list and start > 0 and start <= 250:
+        img_list = _main_alt(image, start=start, debug=debug)
+        if not img_list:
+            start += 10
+    """
+
     start = 150
     while not img_list and start > 0:
         img_list = _main(image, start=start, debug=debug)
