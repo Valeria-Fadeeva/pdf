@@ -24,6 +24,7 @@ def merge(subproject, config):
     subproject_path = os.path.abspath(os.path.join(
         config.get('project'), config.get('split'), subproject))
     mkpath(subproject_path)
+    print(f"mkpath(subproject_path) {subproject_path}")
 
     # start dirs
     subproject_start_path = os.path.abspath(os.path.join(
@@ -32,10 +33,12 @@ def merge(subproject, config):
     subproject_start_pdf_path = os.path.abspath(
         os.path.join(subproject_start_path, 'pdf'))
     mkpath(subproject_start_pdf_path)
+    print(f"mkpath(subproject_start_pdf_path) {subproject_start_pdf_path}")
 
     subproject_start_format_path = os.path.abspath(
         os.path.join(subproject_start_path, config.get('format')))
     mkpath(subproject_start_format_path)
+    print(f"mkpath(subproject_start_format_path) {subproject_start_format_path}")
 
     #subproject_start_format_convert_path = os.path.join(subproject_start_path, 'convert')
     # mkpath(subproject_start_format_convert_path)
@@ -47,10 +50,12 @@ def merge(subproject, config):
     subproject_scan_pdf_path = os.path.abspath(
         os.path.join(subproject_scan_path, 'pdf'))
     mkpath(subproject_scan_pdf_path)
+    print(f"mkpath(subproject_scan_pdf_path) {subproject_scan_pdf_path}")
 
     subproject_scan_format_path = os.path.abspath(
         os.path.join(subproject_scan_path, config.get('format')))
     mkpath(subproject_scan_format_path)
+    print(f"mkpath(subproject_scan_format_path) {subproject_scan_format_path}")
 
     #subproject_scan_format_convert_path = os.path.join(subproject_scan_path, 'convert')
     # mkpath(subproject_scan_format_convert_path)
@@ -62,10 +67,12 @@ def merge(subproject, config):
     subproject_main_pdf_path = os.path.abspath(
         os.path.join(subproject_main_path, 'pdf'))
     mkpath(subproject_main_pdf_path)
+    print(f"mkpath(subproject_main_pdf_path) {subproject_main_pdf_path}")
 
     subproject_main_format_path = os.path.abspath(
         os.path.join(subproject_main_path, config.get('format')))
     mkpath(subproject_main_format_path)
+    print(f"mkpath(subproject_main_format_path) {subproject_main_format_path}")
 
     #subproject_main_format_convert_path = os.path.join(subproject_main_path, 'convert')
     # mkpath(subproject_main_format_convert_path)
@@ -74,14 +81,17 @@ def merge(subproject, config):
     result_path = os.path.abspath(os.path.join(
         subproject_path, config.get('result')))
     mkpath(result_path)
+    print(f"mkpath(result_path) {result_path}")
 
     subproject_result_pdf_path = os.path.abspath(
         os.path.join(result_path, 'pdf'))
     mkpath(subproject_result_pdf_path)
+    print(f"mkpath(subproject_result_pdf_path) {subproject_result_pdf_path}")
 
     subproject_result_format_path = os.path.abspath(
         os.path.join(result_path, config.get('format')))
     mkpath(subproject_result_format_path)
+    print(f"mkpath(subproject_result_format_path) {subproject_result_format_path}")
 
     # получить список pdf файлов в папке start, scan и main
     fso_start_pdf = scan_dir_os(subproject_start_pdf_path)
@@ -333,6 +343,7 @@ def merge(subproject, config):
     # r dir
     r_path = os.path.join(config.get('project'), config.get('result'))
     mkpath(r_path)
+    print(f"mkpath(r_path) {r_path}")
 
     result_output_filename = os.path.abspath(
         os.path.join(r_path, subproject + '.pdf'))

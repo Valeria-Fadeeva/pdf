@@ -39,11 +39,13 @@ def move_to_bg(subproject, config, filepath=False):
     subproject_path = os.path.abspath(os.path.join(
         config.get('project'), config.get('scan'), subproject))
     mkpath(subproject_path)
+    print(f"mkpath(subproject_path) {subproject_path}")
 
     # subproject result dir
     subproject_result_path = os.path.abspath(os.path.join(
         config.get('project'), config.get('split'), subproject))
     mkpath(subproject_result_path)
+    print(f"mkpath(subproject_result_path) {subproject_result_path}")
 
     # main _result dirs
     subproject_result_main_path = os.path.abspath(os.path.join(
@@ -52,6 +54,7 @@ def move_to_bg(subproject, config, filepath=False):
     subproject_result_main_format_path = os.path.abspath(
         os.path.join(subproject_result_main_path, config.get('format')))
     mkpath(subproject_result_main_format_path)
+    print(f"mkpath(subproject_result_main_format_path) {subproject_result_main_format_path}")
 
     # получить список png или jpg файлов в папке png или jpg см. config.get('format')
     fso_result_main_format = scan_dir_os(subproject_result_main_format_path)

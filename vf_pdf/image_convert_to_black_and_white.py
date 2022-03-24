@@ -63,6 +63,7 @@ def test_image_convert_to_black_and_white(filename, config, subproject):
 
     test_path = os.path.join(config.get('project'), 'test', subproject)
     mkpath(test_path)
+    print(f"mkpath(test_path) {test_path}")
 
     variants = ['0', '1', '2', '3', '1b', '2b', '3b', ]
 
@@ -115,7 +116,7 @@ def test_image_convert_to_black_and_white(filename, config, subproject):
 
             p = os.path.join(test_path, str(variant))
             mkpath(p)
-            print(p)
+            print(f"mkpath(p) {p}")
             fp = os.path.join(p, os.path.basename(filename))
             print(fp)
             cv.imwrite(fp, bw_image)

@@ -146,6 +146,7 @@ def page_recognition(subproject, config, filepath=False):
     subproject_path = os.path.abspath(os.path.join(
         config.get('project'), config.get('scan'), subproject))
     mkpath(subproject_path)
+    print(f"mkpath(subproject_path) {subproject_path}")
 
     # start dirs
     subproject_start_pdf_path = os.path.abspath(os.path.join(
@@ -154,11 +155,13 @@ def page_recognition(subproject, config, filepath=False):
     subproject_start_format_path = os.path.abspath(
         os.path.join(subproject_path, config.get('format')))
     mkpath(subproject_start_format_path)
+    print(f"mkpath(subproject_start_format_path) {subproject_start_format_path}")
 
     # subproject result dir
     subproject_result_path = os.path.abspath(os.path.join(
         config.get('project'), config.get('split'), subproject))
     mkpath(subproject_result_path)
+    print(f"mkpath(subproject_result_path) {subproject_result_path}")
 
     # main _result dirs
     subproject_result_main_path = os.path.abspath(os.path.join(
@@ -167,6 +170,7 @@ def page_recognition(subproject, config, filepath=False):
     subproject_result_main_format_path = os.path.abspath(
         os.path.join(subproject_result_main_path, config.get('format')))
     mkpath(subproject_result_main_format_path)
+    print(f"mkpath(subproject_result_main_format_path) {subproject_result_main_format_path}")
 
     # получить список pdf файлов в папке pdf
     if filepath is not False:
