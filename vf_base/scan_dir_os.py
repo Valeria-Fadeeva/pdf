@@ -28,7 +28,7 @@ def scan_dir_os(p):
     p = os.path.abspath(p)
     pobj = [os.path.abspath(os.path.join(p, x)) for x in os.listdir(p)]
     paths = []
-    
+
     for child in pobj:
         if os.path.isdir(child):
             paths.append([child, scan_files_os(child)])
@@ -39,5 +39,5 @@ def scan_dir_os(p):
                 paths.append(child)
             if '.jpg' in child:
                 paths.append(child)
-    
+
     return paths

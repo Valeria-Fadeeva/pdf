@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 """Программа распознавания контуров страниц и сохранения их в png или jpg"""
 
 
@@ -88,6 +89,7 @@ def main():
         if 'temp_filepath' in locals():
             print(f'Не найден {temp_filepath}')
         exit()
+
 
 if __name__ == '__main__':
     #parser = argparse.ArgumentParser(description="Programm: finding the outline of an object and cropping", epilog='Use %(prog)s {command} -h to get help on individual commands')

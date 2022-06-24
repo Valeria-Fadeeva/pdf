@@ -7,5 +7,5 @@ import os
 
 def check_file(obj):
     """Функция проверки файла на наличие"""
-    
+
     return bool(os.path.exists(obj))
